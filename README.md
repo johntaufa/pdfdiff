@@ -58,6 +58,16 @@ reference/
 └── report_page_2.png
 ```
 
+## Convenience wrapper
+
+A `run.sh` script is provided that activates the venv and runs `pdfdiff compare` with default directories:
+
+```bash
+./run.sh                    # basic compare
+./run.sh --format html      # pass extra flags
+./run.sh --interactive -v   # interactive + verbose
+```
+
 ## Development
 
 ```bash
