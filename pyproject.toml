@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdfdiff"
+version = "0.1.0"
+description = "Visual PDF diffing tool for InDesign workflows — compare exported PDFs against reference images using SSIM."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "PyMuPDF>=1.24.0",
+    "scikit-image>=0.22.0",
+    "numpy>=1.26.0",
+    "Pillow>=10.0.0",
+    "opencv-python>=4.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+    "pytest-mock>=3.14.0",
+    "reportlab>=4.2.0",
+]
+
+[project.scripts]
+pdfdiff = "pdfdiff.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short --strict-markers"
+markers = [
+    "unit: unit tests",
+    "integration: integration tests (may be slower)",
+]
+
+[tool.coverage.run]
+source = ["src/pdfdiff"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 85
