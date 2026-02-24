@@ -19,7 +19,7 @@ from skimage.metrics import structural_similarity as ssim
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_THRESHOLD = 99.0  # percent
+DEFAULT_THRESHOLD = 40  # percent
 
 
 @dataclass

@@ -5,6 +5,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source "$SCRIPT_DIR/.venv/bin/activate"
 
+rm -rf "$SCRIPT_DIR/results"
+
 pdfdiff compare \
     -t "$SCRIPT_DIR/test-pdfs" \
     -r "$SCRIPT_DIR/reference" \
